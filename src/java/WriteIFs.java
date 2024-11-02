@@ -5,24 +5,28 @@
  * @author (your name)
  * @version (a version number or a date)
  */
-public class WriteIFs
-{
- 
+public class WriteIFs {
+
     public void playerDied(boolean player1) {
         // Write an IF statement that checks “player1.isAlive()” 
         // and if that’s false, calls “displayGameOver(player1)”
-     
+        if (isAlive(player1)) {
+            System.out.println(true);
+        } else displayGameOver(player1);
     }
-    
+
     public String thermoSTAT(int room) {
         // Write an IF statement that checks the 
         // “temperature(room)” and if that check is less than 70, 
         // calls “heatOn()” else calls “coolOn()”
 
+        if (tempurature(room) < 70) {
+            heatOn();
+        } else coolOn();
 
-        
+
         return this.ss;
-    }
+}
 
     public void fireplaceControl(Object fireplace1) {
         // Write an IF statement that checks 
@@ -30,12 +34,18 @@ public class WriteIFs
         // AND 
         // “insideTemp()” is less than 62, 
         // calls “startAFire(fireplace1)”
-
+        if (outsideTemp() < 50 && insideTemp() < 62) {
+            startAFire(fireplace1);
+        }
     }
+
 
     public void checkFuel(double fuelLevel) {
         // Write an IF statement that checks “fuelLevel” 
         // and if that check is less than 0.08, calls “refuel()”
+        if (fuelLevel < 0.08){
+            System.out.println(refuel());
+        }
 
     }
 
@@ -75,8 +85,9 @@ public class WriteIFs
     private int tempurature(int t) {
         return t+2;
     }
-    private void heatOn() {
+    private boolean heatOn() {
         this.ss = "heating";
+        return false;
     }
     private void coolOn() {
         this.ss = "cooling";
@@ -91,10 +102,11 @@ public class WriteIFs
     private void startAFire(Object o) {
         this.tt_s = 213;
     }
-    private void refuel() {
+    private boolean refuel() {
         this.x = 99;
+        return false;
     }
-    private void displayGameOver(boolean b) {
+    private void displayGameOver(boolean player1) {
         this.ss = "Game Over!";
     }
 }
